@@ -1,3 +1,17 @@
+
+
+<!-- 🔔 Seamless Scrolling Announcement Bar with WhatsApp Link -->
+<div style="background: rgb(17, 24, 39); color: white; font-weight: 600; padding: 12px 0; font-size: 1rem; position: sticky; top: 0; z-index: 999;">
+  <a href="https://wa.link/2ctxyn" target="_blank" style="color: white; text-decoration: none;">
+    <marquee behavior="scroll" direction="left" scrollamount="7">
+      Enjoy 50% discount on our Sales Starter Kit 🎉 - Discount lasts till 10th of July, 2025 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+      Enjoy 50% discount on our Sales Starter Kit 🎉 - Discount lasts till 10th of July, 2025 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+      Enjoy 50% discount on our Sales Starter Kit 🎉 - Discount lasts till 10th of July, 2025
+    </marquee>
+  </a>
+</div>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -261,6 +275,50 @@
             </div>
         </div>
     </section>
+
+<body>
+  <!-- 🔥 Countdown Section -->
+<div style="background: linear-gradient(to right, #4A00E0, #8E2DE2); color: white; text-align: center; padding: 30px 20px; border-radius: 12px; font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 40px auto;">
+  <h2 style="font-size: 1.8rem; margin-bottom: 10px;">⏳ Hurry! 50% OFF Ends In:</h2>
+  <div id="countdown" style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; flex-wrap: wrap;">
+    <div><span id="days">00</span><div style="font-size: 0.8rem;">Days</div></div>
+    <div><span id="hours">00</span><div style="font-size: 0.8rem;">Hours</div></div>
+    <div><span id="minutes">00</span><div style="font-size: 0.8rem;">Minutes</div></div>
+    <div><span id="seconds">00</span><div style="font-size: 0.8rem;">Seconds</div></div>
+  </div>
+  <a href="https://wa.link/2ctxyn" target="_blank" style="display: inline-block; background-color: #ffcc00; color: #111827; padding: 12px 24px; font-weight: 600; font-size: 1rem; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: pulse 2s infinite;">Get Sales Starter Package Now</a>
+</div>
+<style>
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 204, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+}
+</style>
+
+<script>
+  const countdownDate = new Date("July 10, 2025 23:59:59").getTime();
+  const timer = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+    document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "<span style='color: #ffcc00;'>🎉 Offer Expired!</span>";
+    }
+  }, 1000);
+</script>
+
+
 
     <!-- Testimonials -->
     <section id="testimonials" class="py-20 bg-white">
