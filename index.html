@@ -1,5 +1,6 @@
 
 
+
 <!-- 🔔 Seamless Scrolling Announcement Bar with WhatsApp Link -->
 <div style="background: rgb(17, 24, 39); color: white; font-weight: 600; padding: 12px 0; font-size: 1rem; position: sticky; top: 0; z-index: 999;">
   <a href="https://wa.link/2ctxyn" target="_blank" style="color: white; text-decoration: none;">
@@ -286,7 +287,7 @@
     <div><span id="minutes">00</span><div style="font-size: 0.8rem;">Minutes</div></div>
     <div><span id="seconds">00</span><div style="font-size: 0.8rem;">Seconds</div></div>
   </div>
-  <a href="https://wa.link/2ctxyn" target="_blank" style="display: inline-block; background-color: #ffcc00; color: #111827; padding: 12px 24px; font-weight: 600; font-size: 1rem; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: pulse 2s infinite;">Get Sales Starter Package Now</a>
+  <a href="#" onclick="openModal()" style="display: inline-block; background-color: #ffcc00; color: #111827; padding: 12px 24px; font-weight: 600; font-size: 1rem; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: pulse 2s infinite;">Get Sales Starter Package Now</a>
 </div>
 <style>
 @keyframes pulse {
@@ -672,5 +673,57 @@
             </div>
         </div>
     </footer>
+
+<!-- 🚀 Sales Starter Kit Modal -->
+<div id="salesModal" style="display:none; position: fixed; top: 0; left: 0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background:#fff; padding:30px; border-radius:12px; width:90%; max-width:500px; position:relative; font-family:'Segoe UI',sans-serif; animation: fadeIn 0.3s ease;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 10px;">🎉 Order Sales Starter Kit</h2>
+    <p style="margin-bottom: 5px;">Original Price: <del style="color:red;">$194</del></p>
+    <p style="font-size: 1.3rem; font-weight: bold; color:#4A00E0;">Now $97 Only</p>
+    <input id="storeName" placeholder="Your Store Name" style="width: 100%; padding:10px; margin-top:15px; border:1px solid #ccc; border-radius:8px;" />
+    <input id="storeUrl" placeholder="https://yourstore.myshopify.com" style="width: 100%; padding:10px; margin-top:10px; border:1px solid #ccc; border-radius:8px;" />
+    <a id="submitOrder" href="#" target="_blank" style="display: inline-block; margin-top:20px; background:#4A00E0; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Submit Order</a>
+    <button onclick="closeModal()" style="position: absolute; top: 10px; right: 15px; background: transparent; border: none; font-size: 20px;">✖</button>
+  </div>
+</div>
+
+<style>
+@keyframes fadeIn {
+  from {opacity:0; transform: scale(0.95);}
+  to {opacity:1; transform: scale(1);}
+}
+</style>
+
+<script>
+  function openModal() {
+    document.getElementById("salesModal").style.display = "flex";
+  }
+  function closeModal() {
+    document.getElementById("salesModal").style.display = "none";
+  }
+
+  document.getElementById("submitOrder").addEventListener("click", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("storeName").value.trim();
+    const url = document.getElementById("storeUrl").value.trim();
+    if (!name || !url) {
+      alert("Please fill in both your store name and URL.");
+      return;
+    }
+    const message = `Hello, I want the Sales Starter Kit ($97).\n\nStore Name: ${name}\nStore URL: ${url}`;
+    const waLink = `https://wa.me/2347012345678?text=${encodeURIComponent(message)}`;
+    
+    document.getElementById("salesModal").innerHTML = `
+      <div style='background:#fff; padding:30px; border-radius:12px; text-align:center; font-family:sans-serif; max-width:500px;'>
+        <h2 style='color:#4A00E0;'>🎉 Thank you!</h2>
+        <p style='font-size: 1rem;'>Your Sales Starter Kit request has been received.</p>
+        <p style='font-size: 0.95rem; color: #555;'>A specialist will contact you shortly via WhatsApp.</p>
+        <a href='${waLink}' target='_blank' style='margin-top: 20px; display:inline-block; background:#4A00E0; color:white; padding:12px 24px; border-radius:8px; text-decoration:none;'>Open WhatsApp Now</a>
+      </div>
+    `;
+    
+  });
+</script>
+
 </body>
 </html>
